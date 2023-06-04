@@ -15,7 +15,7 @@ CORS(app)
 
 def getrecipe():
     URL = "https://api.openai.com/v1/chat/completions"
-    key='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'
+    key='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'
 
     data=request.json
     ingredients=data['ingredients']

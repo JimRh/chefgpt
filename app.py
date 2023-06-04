@@ -1,13 +1,14 @@
 from flask import Flask,jsonify,request
 from flask_cors import CORS
+from dotenv import load_dotenv
 import openai
 import requests
-
+import os
 
 app=Flask(__name__)
 
 CORS(app)
-
+load_dotenv()
 
 @app.post('/getrecipe')
 
@@ -15,7 +16,7 @@ CORS(app)
 
 def getrecipe():
     URL = "https://api.openai.com/v1/chat/completions"
-    key='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'
+    key= os.environ.get('apikey')
 
     data=request.json
     ingredients=data['ingredients']
